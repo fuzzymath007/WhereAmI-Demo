@@ -7,12 +7,35 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+    
+    var manager:CLLocationManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        manager = CLLocationManager()
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+        
+        func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]!){
+            
+        var userLocations:CLLocation = locations[0] as CLLocation
+
+            
+            
+        }
+        
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
