@@ -27,13 +27,29 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]!){
             
-        var userLocations:CLLocation = locations[0] as CLLocation
+        var userLocation:CLLocation = locations[0] as CLLocation
+            
+            var lat:CLLocationDegrees = userLocation.coordinate.latitude
+            
+            var log:CLLocationDegrees = userLocation.coordinate.longitude
+            
+            var latDelta:CLLocationDegrees = 0.01
+            
+            var logDelta:CLLocationDegrees = 0.01
+            
+            var span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, logDelta)
+            
+            var location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, log)
+            
+            var region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+            
+            var annotation = MKPointAnnotation()
+            
+            println(lat)
+            
+            println(log)
 
-            
-            
         }
-        
-        
         
         
     }
